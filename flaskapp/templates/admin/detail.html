@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "_forms.html" as forms %}
+{% block content %}
+{% import "bootstrap/wtf.html" as wtf %}
+<div class="container">
+  <h3>
+    {% if create %}
+      Add new Post
+    {% else %}
+      Edit Post
+    {% endif %}
+  </h3>
+  </div>
+<div class="container" >
+  <form  action="?{{ request.query_string }}" method="post">  
+    {{forms.render(form) }}
+    <div class="actions">
+      <input type="submit" class="btn btn-success" value="save" >
+      <a href="{{ url_for("admin.index") }}" class="btn-secondary">Cancel</a>
+    </div>
+  </form>  
+  </div>
+
+
+
+{% endblock %}

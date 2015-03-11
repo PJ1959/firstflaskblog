@@ -1,0 +1,51 @@
+
+
+  {% extends "base.html" %}
+
+  {% macro render_pagination(pagination, endpoint) %}
+  <div class=pagination>
+  {%- for page in pagination.iter_pages() %}
+    {% if page %}
+      {% if page != pagination.page %}
+        <a href="{{ url_for(endpoint, page=page) }}">{{ page }}</a>
+      {% else %}
+        <strong>{{ page }}</strong>
+      {% endif %}
+    {% else %}
+      <span class=ellipsis>…</span>
+    {% endif %}
+  {%- endfor %}
+  </div>
+{% endmacro %}
+
+{% block content %}
+ 
+{{ pagination.info|safe }}
+{{ pagination.links|safe }}
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rest in rests %}
+      <tr>
+        <td>{{ loop.index  }}</td>
+        <td>{{ rest.restName }}</td>
+        <td>{{ rest.city }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{{ pagination.links|safe }}
+
+
+
+
+{% endblock %}
+
+
+    

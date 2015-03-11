@@ -1,0 +1,43 @@
+ {% extends "base.html" %}
+{% block content %}
+ 
+  
+  <div class="container">
+    <div class="navbar-header- default">
+      <h2><a href="{{ url_for('admin.index') }}" class="brand">My Admin Page</a></h2>
+    </div>
+    <div class="navbar">
+      <ul class="nav nav-pills navbar-nav navbar-right ">
+      <li>
+        <a href="{{ url_for('admin.create') }}" class="btn btn-primary">Create New Post</a>
+      </li>
+    </ul>
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+
+
+
+ 
+
+
+  <table  class="table table-bordered table-striped">
+    <thead>
+     <th> Post Id</th>
+      <th>Title</th>
+      <th>Created</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+      <tr>
+        <th>{{ post.post_id}}</th>
+        <th><a href="{{ url_for('admin.edit',slug=post.slug ) }}">{{ post.title }}</a></th>
+        <td>{{ post.created_at.strftime('%Y-%m-%d') }}</td>
+        <td><a href="{{ url_for('admin.edit',slug=post.slug) }}"class="btn btn-primary">Edit</a></td>
+        <td><a href="{{ url_for('admin.delete',slug=post.slug) }}"class="btn btn-primary">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

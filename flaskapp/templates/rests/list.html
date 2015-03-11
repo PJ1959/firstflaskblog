@@ -1,0 +1,40 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>welcome for a meal</h3>
+
+<h5><a href="{{url_for('rests.add_biz')}}">Add A restaurant </a> </h5>
+<h3><a href="{{url_for('rests.search')}}">Search  A restaurant </a> </h3>
+<div class="panel panel-default">
+
+<div class="panel-body">   
+
+<div class="well">
+    {% for rest in rests.items %}
+
+    <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-danger">
+    <h4 class="list-group-item-heading">{{rest.restName}}</h4>
+    
+  </a>
+</div>        
+      
+      <p>{{rest.area}}</p>
+      <p>{{rest.postalCode}}</p>
+      <p>{{rest.city}}</p>
+      <hr>
+      
+
+
+    {% endfor %}
+    </div>
+    </div>
+
+
+    </div>
+
+
+{% endblock %}

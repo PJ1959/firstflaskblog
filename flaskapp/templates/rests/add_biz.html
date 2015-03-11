@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% import "_forms.html" as forms %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+<div class="container">
+{% block page_header %}
+  <div class="page-header">
+    
+  </div>
+{% endblock %}
+  <h2>Add your restaurant here</h2>
+<form action="." method="post">
+  {{ forms.render(form) }}
+  <div class="actions">
+    <input type="submit" class="btn-success" value="Save">
+  </div>
+</form>
+</div>
+
+  </div>
+
+  
+{% endblock %}

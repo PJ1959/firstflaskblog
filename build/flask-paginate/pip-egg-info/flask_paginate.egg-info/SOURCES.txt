@@ -1,0 +1,8 @@
+setup.cfg
+flask_paginate/__init__.py
+pip-egg-info/flask_paginate.egg-info/PKG-INFO
+pip-egg-info/flask_paginate.egg-info/SOURCES.txt
+pip-egg-info/flask_paginate.egg-info/dependency_links.txt
+pip-egg-info/flask_paginate.egg-info/not-zip-safe
+pip-egg-info/flask_paginate.egg-info/requires.txt
+pip-egg-info/flask_paginate.egg-info/top_level.txt

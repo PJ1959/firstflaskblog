@@ -1,0 +1,40 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "profiles/index.html" %}
+
+
+
+{% block title %}
+Profile Management
+{% endblock %}
+
+
+<h1>user profile</h1>
+ 
+{% block content %}
+
+
+  <table  class="table table-bordered table-striped">
+    <thead>
+      <th>User Id</th>
+      <th>User Name</th>
+      <th>E mail</th>
+      <th>Created On</th>
+      <th>Active</th>
+    </thead>
+    <tbody>
+    {% for user in users %}
+      <tr>
+        <th>{{ user.user_id }}</a></th>
+        <th>{{ user.username }}</a></th>
+        <th>{{ user.email }}</a></th>
+        <td>{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+        <th>{{ user.active }}</a></th>
+
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "_forms.html" as forms %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}  
+
+  <h1>Search results for "{{ query }}":</h1>
+ {% if text_results %}
+
+      {{text_results}}
+
+      
+{% endif %}
+
+{% endblock %}

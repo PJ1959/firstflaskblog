@@ -1,0 +1,52 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h5><a href="{{url_for('rests.add_biz')}}">Add A restaurant </a> </h5>
+<h3><a href="{{url_for('rests.search')}}">Search  A restaurant </a> </h3>
+<div class="panel panel-default">
+
+<div class="panel-body">
+
+
+    
+{{ pagination.info|safe }}
+{{ pagination.links|safe}}
+
+
+<table>
+  <thead>
+    <tr>
+      <th>S No</th>
+      <th>Name</th>
+      <th>Area</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rest in rests.items %}
+      <tr>
+        <td>{{ loop.index   }}</td>
+        <td>{{ rest.restName }}</td>
+        <td>{{ rest.area }}</td>
+        <td>{{rest.city}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{{ pagination.links|safe}}
+
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+{% endblock %}

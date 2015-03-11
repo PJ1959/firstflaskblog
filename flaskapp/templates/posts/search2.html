@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% import "_forms.html" as forms %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+ 
+       
+       
+                        <p>You Searched: {{ query }}</p>
+               
+<h1>Search Result</h1>
+    {% if text_results %}
+    {% for res in text_results %}
+    
+    {{text_results}}
+    
+    {% else %}
+    <p> search not found!!</p>
+
+    {% endfor %}
+    {% endif %}
+    
+    
+
+
+{% endblock %}

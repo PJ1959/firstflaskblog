@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>welcome</h3>
+
+    {% for rest in rests %}
+    
+      <h2><a href="{{ url_for('rests.detail') }}">{{rest.restName}}</a></h2>
+      <ul>
+        <li>{{rest.city}}</li>
+        <li>{{rest.state}}</li>
+         <li>{{rest.country}}</li>
+
+      </ul>
+      
+
+    {% endfor %}
+
+
+{% endblock %}

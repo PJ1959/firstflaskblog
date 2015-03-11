@@ -1,0 +1,19 @@
+from flask import Blueprint,render_template
+
+from flask_application.controllers import TemplateView
+
+blogs = Blueprint('blogs', __name__)
+
+
+class BlogView(TemplateView):
+    blueprint = blogs
+    route = '/blogs'
+    route_name = 'index'
+    template_name = 'blogs/index.html'
+    
+
+    def get_context_data(self,*args,**kwargs):
+        return {
+          'content':'This is my Blog'
+
+        }        

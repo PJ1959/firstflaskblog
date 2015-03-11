@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_forms.html" as forms %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}  
+
+<div class="well">
+    {% for post in posts %}
+    
+      <h3><a href="{{ url_for('posts.detail', slug=post.slug) }}">{{post.title}}</a></h3>
+      <p>{{ post.body|truncate(100) }}</p>
+      <h6> <a href="{{url_for('posts.detail', slug=post.slug)}}">Read More......</a></h6>
+      <p>
+        {{ post.created_at.strftime('%H:%M %Y-%m-%d') }} |
+
+        {% with total=post.comments|length %}
+            {{ total }} comment {%- if total > 1 %}s{%- endif -%}
+        {% endwith %}
+      </p>
+
+
+    {% endfor %}
+    </div>
+    </div>
+
+
+    </div>
+</div>
+
+{% endblock %}
